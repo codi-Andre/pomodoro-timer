@@ -1,0 +1,13 @@
+.card {
+  background-color: var(--white100);
+  box-shadow: 0 0 16px var(--white300);
+
+  border-radius: 12px;
+  min-height: 38rem;
+  min-width: 20rem;
+}
+
+.menu {
+  padding: 1rem;
+  color: var(--white300);
+}

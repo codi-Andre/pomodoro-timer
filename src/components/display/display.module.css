@@ -1,0 +1,23 @@
+.display {
+  margin-top: 2rem;
+
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  color: var(--white300);
+}
+
+.clock {
+  font-size: var(--size-2xl);
+}
+
+.label {
+  font-size: var(--size-sm);
+}

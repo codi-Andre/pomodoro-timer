@@ -1,0 +1,25 @@
+.container {
+  margin-top: 3rem;
+}
+
+.display {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+  margin-inline: auto;
+
+  height: 15rem;
+  width: 15rem;
+
+  border: solid 4px var(--white200);
+  border-radius: 9999px;
+
+  color: var(--pink700);
+  font-size: var(--size-5xl);
+  font-weight: 400;
+}
+
+.timer {
+  display: inline-block;
+}

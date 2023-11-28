@@ -1,0 +1,33 @@
+.panel {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.btn {
+  color: var(--white300);
+  padding: 1.5rem;
+}
+
+.panel .btn:nth-child(2) {
+  color: var(--white100);
+  background: linear-gradient(45deg, var(--pink700), var(--pink500));
+  border-radius: 9999px;
+  padding-inline: 1.7rem 1.2rem;
+}
+
+.play {
+  height: 32px;
+  width: 32px;
+}
+
+.pause {
+  display: none;
+  height: 32px;
+  width: 32px;
+}
+
+.clear {
+  height: 32px;
+  width: 32px;
+}

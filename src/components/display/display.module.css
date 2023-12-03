@@ -1,4 +1,42 @@
+.container {
+  margin-top: 3rem;
+  position: relative;
+}
+
 .display {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+  margin-inline: auto;
+
+  height: 15rem;
+  width: 15rem;
+
+  border: solid 4px var(--white200);
+  border-radius: 9999px;
+
+  font-size: var(--size-5xl);
+  font-weight: 300;
+}
+
+.text-pink {
+  color: var(--pink700);
+}
+
+.text-green {
+  color: var(--green700);
+}
+
+.text-gray {
+  color: var(--white300);
+}
+
+.timer {
+  display: inline-block;
+}
+
+.info-container {
   margin-top: 2rem;
 
   display: flex;
@@ -6,11 +44,10 @@
   gap: 3rem;
 }
 
-.timer {
+.info {
   display: flex;
   flex-direction: column;
   align-items: center;
-
   color: var(--white300);
 }
 
@@ -20,4 +57,11 @@
 
 .label {
   font-size: var(--size-sm);
+}
+
+.progress-bar {
+  position: absolute;
+  top: -0.6rem;
+  left: 2.9rem;
+  rotate: 270deg;
 }

@@ -1,33 +1,59 @@
 .panel {
   display: flex;
   justify-content: center;
-  margin-top: 2rem;
+  margin-top: 3rem;
+  gap: 0.5rem;
 }
 
-.btn {
-  color: var(--white300);
-  padding: 1.5rem;
-}
-
-.panel .btn:nth-child(2) {
+.play-btn {
   color: var(--white100);
-  background: linear-gradient(45deg, var(--pink700), var(--pink500));
+  padding: 1rem 0.8rem 1rem 1.2rem;
+  border-radius: 50%;
+}
+
+.pause-btn {
+  color: var(--white100);
+  padding: 1rem;
+  border-radius: 50%;
+}
+
+.bg-pink {
+  background: var(--pink-gradient);
+}
+
+.bg-green {
+  background: var(--green-gradient);
+}
+
+.restart-btn {
+  color: var(--white300);
   border-radius: 9999px;
-  padding-inline: 1.7rem 1.2rem;
+  padding: 1rem 1.2rem;
+  border-radius: 50%;
 }
 
-.play {
-  height: 32px;
-  width: 32px;
+.clear-btn {
+  color: var(--white300);
+  padding: 1rem;
+  border-radius: 50%;
 }
 
-.pause {
-  display: none;
-  height: 32px;
-  width: 32px;
+.play-svg {
+  height: 40px;
+  width: 40px;
 }
 
-.clear {
-  height: 32px;
-  width: 32px;
+.restart-svg {
+  height: 36px;
+  width: 36px;
+}
+
+.pause-svg {
+  height: 40px;
+  width: 40px;
+}
+
+.clear-svg {
+  height: 40px;
+  width: 40px;
 }

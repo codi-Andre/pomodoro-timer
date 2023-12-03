@@ -1,17 +1,108 @@
+import { createEffect } from "solid-js"
+import { useTimerContext } from "../../contexts/timer-context"
+import { calculatePercentage } from "../../utils/calculatePercentage"
 import styles from "./display.module.css"
 
 export function Display() {
-  return (
-    <div class={styles.display}>
-      <p class={styles.timer}>
-        <span class={styles.clock}>25:00</span>{" "}
-        <span class={styles.label}>time work</span>
-      </p>
+  const [state] = useTimerContext()
 
-      <p class={styles.timer}>
-        <span class={styles.clock}>5:00</span>{" "}
-        <span class={styles.label}>time rest</span>
-      </p>
+  const progressBarSize = 750
+  const progressBar = () =>
+    calculatePercentage(state.timeInPercentage, progressBarSize)
+
+  let progressBarRef: SVGCircleElement | undefined
+
+  createEffect(() => {
+    if (state.countDown) {
+      if (progressBarRef) progressBarRef.style.stroke = "url(#grad1)"
+    } else {
+      if (progressBarRef) progressBarRef.style.stroke = "url(#grad2)"
+    }
+  })
+
+  return (
+    <div class={styles.container}>
+      <div
+        class={`${styles.display} ${
+          state.countDown ? styles["text-pink"] : styles["text-green"]
+        }`}
+      >
+        <span class={styles.timer}>{state.time[0]}</span>
+        <span class={styles.timer}>{state.time[1]}</span>
+        <span class={styles.timer}>:</span>
+        <span class={styles.timer}>{state.time[3]}</span>
+        <span class={styles.timer}>{state.time[4]}</span>
+      </div>
+      <div class={styles["info-container"]}>
+        <p class={styles.info}>
+          <span
+            class={`${styles.clock} ${
+              state.countDown ? styles["text-pink"] : styles["text-gray"]
+            }`}
+          >
+            {state.timeWork}:00
+          </span>{" "}
+          <span class={styles.label}>TIME WORK</span>
+        </p>
+
+        <p class={styles.info}>
+          <span
+            class={`${styles.clock} ${
+              state.countDown ? styles["text-gray"] : styles["text-green"]
+            }`}
+          >
+            {state.timeRest}:00
+          </span>{" "}
+          <span class={styles.label}>TIME REST</span>
+        </p>
+      </div>
+      <svg class={styles["progress-bar"]} height={260} width={260} aria-hidden>
+        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop
+            offset="0%"
+            style={{
+              "stop-color": "var(--pink700)",
+              "stop-opacity": "1"
+            }}
+          />
+          <stop
+            offset="100%"
+            style={{
+              "stop-color": "var(--pink500)",
+              "stop-opacity": "1"
+            }}
+          />
+        </linearGradient>
+        <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop
+            offset="0%"
+            style={{
+              "stop-color": "var(--green700)",
+              "stop-opacity": "1"
+            }}
+          />
+          <stop
+            offset="100%"
+            style={{
+              "stop-color": "var(--green500)",
+              "stop-opacity": "1"
+            }}
+          />
+        </linearGradient>
+        <circle
+          ref={progressBarRef}
+          cx="129"
+          cy="129"
+          r="119"
+          fill="none"
+          stroke="url(grad1)"
+          stroke-width="10"
+          stroke-linecap="round"
+          stroke-dasharray={progressBarSize.toString()}
+          stroke-dashoffset={progressBar()}
+          class={styles.circle}
+        />
+      </svg>
     </div>
   )
 }

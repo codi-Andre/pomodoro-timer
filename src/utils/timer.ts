@@ -51,9 +51,13 @@ export class Timer {
   }
 
   clear() {
-    this.isRunning = false
-    this.startTime = 0
+    if (this.isRunning) {
+      this.stop()
+    }
+
     this.overallTime = 0
+    this.startTime = 0
+    this.targetTime = 1000 * 60 * 25
   }
 
   set setTargetTime(timeInMs: number) {
@@ -72,7 +76,6 @@ export class Timer {
       const time = this.overallTime + this.getTimeElapsedSinceLastStart()
 
       if (time >= this.targetTime) {
-        this.stop()
         return this.targetTime
       }
 
@@ -102,7 +105,6 @@ export class Timer {
     const time = this.targetTime - this.getTime
 
     if (time <= 0) {
-      this.stop()
       return 0
     }
 

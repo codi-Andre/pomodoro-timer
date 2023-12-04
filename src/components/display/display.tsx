@@ -11,6 +11,7 @@ export function Display() {
     calculatePercentage(state.timeInPercentage, progressBarSize)
 
   let progressBarRef: SVGCircleElement | undefined
+  let audioRef: HTMLAudioElement | undefined
 
   createEffect(() => {
     if (state.countDown) {
@@ -20,11 +21,26 @@ export function Display() {
     }
   })
 
+  createEffect(() => {
+    if (state.isRunning && state.timeInPercentage >= 99 && state.countDown) {
+      audioRef?.play()
+    } else if (
+      state.isRunning &&
+      state.timeInPercentage <= 1 &&
+      !state.countDown
+    ) {
+      audioRef?.play()
+    }
+  })
+
   return (
     <div class={styles.container}>
+      <audio ref={audioRef} tabIndex={-1}>
+        <source src="/timer-finished.mp3" type="audio/mpeg" />
+      </audio>
       <div
         class={`${styles.display} ${
-          state.countDown ? styles["text-pink"] : styles["text-green"]
+          state.countDown ? "text-pink" : "text-green"
         }`}
       >
         <span class={styles.timer}>{state.time[0]}</span>
@@ -35,24 +51,12 @@ export function Display() {
       </div>
       <div class={styles["info-container"]}>
         <p class={styles.info}>
-          <span
-            class={`${styles.clock} ${
-              state.countDown ? styles["text-pink"] : styles["text-gray"]
-            }`}
-          >
-            {state.timeWork}:00
-          </span>{" "}
+          <span class={styles.clock}>{state.timeWork}:00</span>{" "}
           <span class={styles.label}>TIME WORK</span>
         </p>
 
         <p class={styles.info}>
-          <span
-            class={`${styles.clock} ${
-              state.countDown ? styles["text-gray"] : styles["text-green"]
-            }`}
-          >
-            {state.timeRest}:00
-          </span>{" "}
+          <span class={styles.clock}>{state.timeRest}:00</span>{" "}
           <span class={styles.label}>TIME REST</span>
         </p>
       </div>

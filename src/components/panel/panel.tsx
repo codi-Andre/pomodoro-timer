@@ -9,7 +9,7 @@ export function Panel() {
     <div class={styles.panel}>
       <button
         aria-label="restart"
-        class={styles["restart-btn"]}
+        class={`${styles["restart-btn"]} btn-active`}
         onClick={() => {
           reset()
         }}
@@ -32,8 +32,8 @@ export function Panel() {
           <button
             aria-label="play"
             class={`${styles["play-btn"]} ${
-              state.countDown ? styles["bg-pink"] : styles["bg-green"]
-            }`}
+              state.countDown ? "bg-pink" : "bg-green"
+            } btn-active`}
             onClick={() => {
               start()
             }}
@@ -58,8 +58,8 @@ export function Panel() {
         <button
           aria-label="pause"
           class={`${styles["pause-btn"]} ${
-            state.countDown ? styles["bg-pink"] : styles["bg-green"]
-          }`}
+            state.countDown ? "bg-pink" : "bg-green"
+          } btn-active`}
           onClick={() => {
             stop()
           }}
@@ -83,7 +83,7 @@ export function Panel() {
 
       <button
         aria-label="clear"
-        class={styles["clear-btn"]}
+        class={`${styles["clear-btn"]} btn-active`}
         onClick={() => {
           clear()
         }}

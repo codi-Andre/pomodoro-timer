@@ -1,0 +1,62 @@
+.popover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+
+  background-color: var(--white100);
+  color: var(--white300);
+
+  border-radius: 16px;
+  height: 100%;
+  width: 23rem;
+
+  display: flex;
+  flex-direction: column;
+  border-right: 2px solid var(--white300);
+}
+
+.close {
+  position: absolute;
+  top: 0;
+  right: 1rem;
+
+  padding: 1rem;
+  color: var(--white300);
+}
+
+.close-svg {
+  height: 32px;
+  width: 32px;
+}
+
+.title {
+  padding: 1rem;
+  font-size: var(--size-xl);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.label {
+}
+
+.input {
+}
+
+.submit {
+}
+
+.subtitle {
+  margin-top: 10rem;
+  text-align: center;
+}
+
+.legend {
+  text-align: center;
+}

@@ -1,28 +1,52 @@
-## Usage
+<h1 align="center">
+    Pomodoro timer
+</h1>
+
+<p align="center">
+  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/codi-andre/pomodoro-timer.svg">
+
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/codi-andre/pomodoro-timer.svg">
+
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/codi-andre/pomodoro-timer.svg">
+  <a href="https://github.com/codi-andre/pomodoro-timer/commits/master">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/codi-andre/pomodoro-timer.svg">
+  </a>
+
+  <a href="https://github.com/codi-andre/pomodoro-timer/issues">
+    <img alt="Repository issues" src="https://img.shields.io/github/issues/codi-andre/pomodoro-timer.svg">
+  </a>
+</p>
+
+<p align="center">
+  <a href="#como-acessar">Como acessar</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;
+</p>
+
+## Como acessar
+
+Acesse [pomodoro timer](https://github.com/codi-Andre/pomodoro-timer)
+
+ou
+
+execute um dos comandos abaixo:
 
 ```bash
-$ npm install # or pnpm install or yarn install
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun run dev
 ```
 
-### Learn more on the [Solid Website](https://solidjs.com) and come chat with us on our [Discord](https://discord.com/invite/solidjs)
+Acesse [http://localhost:5173/pomodoro-timer](http://localhost:5173/pomodoro-timer/) no seu navegador para ver o resultado.
 
-## Available Scripts
+Dê uma olhada no meu [LinkedIn profile](https://www.linkedin.com/in/andre-web-dev) - seu feedback é bem-vindo! Se você gosta do que eu estou fazendo, vamos conversar!
 
-In the project directory, you can run:
+## Tecnologias
 
-### `npm run dev`
+Este projeto está em desenvolvimento com as seguintes tecnologias:
 
-Runs the app in the development mode.<br>
-Open [http://localhost:5173](http://localhost:5173) to view it in the browser.
-
-### `npm run build`
-
-Builds the app for production to the `dist` folder.<br>
-It correctly bundles Solid in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-## Deployment
-
-Learn more about deploying your application with the [documentations](https://vitejs.dev/guide/static-deploy.html)
+- [Vite](https://vitejs.dev/)
+- [SolidJS](https://reactjs.org/)

@@ -12,7 +12,7 @@ function App() {
     <TimerProvider>
       <main class={styles.card}>
         <button
-          class={styles["menu-btn"]}
+          class={`${styles["menu-btn"]} btn-active`}
           aria-label="menu"
           onClick={() => setIsMenuOpen((prev) => !prev)}
         >

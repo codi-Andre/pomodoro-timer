@@ -22,11 +22,11 @@ export function Display() {
   })
 
   createEffect(() => {
-    if (state.isRunning && state.timeInPercentage >= 99 && state.countDown) {
+    if (state.isRunning && state.timeInPercentage >= 100 && state.countDown) {
       audioRef?.play()
     } else if (
       state.isRunning &&
-      state.timeInPercentage <= 1 &&
+      state.timeInPercentage <= 0 &&
       !state.countDown
     ) {
       audioRef?.play()

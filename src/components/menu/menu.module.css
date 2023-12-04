@@ -1,8 +1,20 @@
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0%);
+  }
+}
+
 .popover {
   position: absolute;
   top: 0;
   left: 0;
   z-index: 1;
+
+  animation: 0.5s slideIn;
 
   background-color: var(--white100);
   color: var(--white300);
@@ -16,11 +28,53 @@
   border-right: 2px solid var(--white300);
 }
 
+.switch {
+  position: absolute;
+  top: 1.3rem;
+  right: 5rem;
+
+  display: inline-block;
+  height: 1.6rem;
+  width: 2.5rem;
+
+  cursor: pointer;
+}
+
+.checkbox {
+  height: 0;
+  width: 0;
+  opacity: 0;
+}
+
+.slider {
+  position: absolute;
+  inset: 0;
+  transition: 0.4s;
+  background-color: var(--pink300);
+  border-radius: 34px;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  height: 1.2rem;
+  width: 1.2rem;
+  inset: 3px 0 0 3px;
+  transition: 0.4s;
+  background-color: var(--white100);
+  border-radius: 50%;
+}
+
+input:checked + .slider:before {
+  transform: translateX(0.9rem);
+}
+
 .close {
   position: absolute;
   top: 0;
   right: 1rem;
 
+  border-radius: 999px;
   padding: 1rem;
   color: var(--white300);
 }
@@ -30,30 +84,66 @@
   width: 32px;
 }
 
-.title {
-  padding: 1rem;
-  font-size: var(--size-xl);
-}
-
 .form {
   display: flex;
   flex-direction: column;
   padding: 1rem;
-  gap: 1rem;
   align-items: flex-start;
 }
 
+.title {
+  margin-top: 4rem;
+  padding: 1rem;
+  font-size: var(--size-xl);
+  text-align: center;
+}
+
 .label {
+  display: flex;
+  flex-direction: column;
+}
+
+.tag {
+  margin-left: 1rem;
+}
+
+.label + .label {
+  margin-top: 1rem;
 }
 
 .input {
+  border-radius: 24px;
+  border: 2px solid var(--white300);
+  padding: 0.5rem 1rem;
+  min-width: 12rem;
+
+  background-color: var(--white100);
+  color: gray;
+}
+
+.input::placeholder {
+  color: var(--white300);
 }
 
 .submit {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: var(--pink-gradient);
+  color: var(--white100);
+  border-radius: 24px;
+}
+
+.timer-mode {
+  margin-left: 1rem;
+  max-width: 7rem;
+  background-color: var(--pink300);
+  color: var(--white100);
+  border-radius: 24px;
+  padding: 0.5rem 1rem;
 }
 
 .subtitle {
-  margin-top: 10rem;
+  margin-top: 5rem;
   text-align: center;
 }
 

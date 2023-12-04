@@ -12,7 +12,7 @@ interface MenuProps {
 }
 
 export function Menu(props: MenuProps) {
-  const [, { setTimeInMin }] = useTimerContext()
+  const [, { setTimeInMin, switchTimerMode }] = useTimerContext()
 
   function handleSubmit(e: SubmitEvent) {
     e.preventDefault()
@@ -26,12 +26,20 @@ export function Menu(props: MenuProps) {
     setTimeInMin(work, rest)
   }
 
+  function switchColors() {
+    document.documentElement.classList.toggle("green-theme")
+  }
+
   return (
     <div class={styles.popover}>
-      <h2 class={styles.title}>Want to set a time?</h2>
+      <label class={styles.switch}>
+        <input class={styles.checkbox} type="checkbox" onClick={switchColors} />
+
+        <span class={styles.slider} />
+      </label>
 
       <button
-        class={styles.close}
+        class={`${styles.close} btn-active`}
         onClick={() => props.closeMenu((prev) => !prev)}
         aria-label="close menu"
       >
@@ -51,7 +59,10 @@ export function Menu(props: MenuProps) {
           <path d="m6 6 12 12" />
         </svg>
       </button>
+
       <form class={styles.form} onSubmit={handleSubmit}>
+        <h2 class={styles.title}>Want to set a time?</h2>
+
         <label class={styles.label}>
           <span class={styles.tag}>time work:</span>
 
@@ -62,6 +73,7 @@ export function Menu(props: MenuProps) {
             name="work"
             min={1}
             max={60}
+            pattern="[0-9]"
           />
         </label>
 
@@ -78,19 +90,30 @@ export function Menu(props: MenuProps) {
           />
         </label>
 
-        <button class={styles.submit} type="submit">
-          Set Time
+        <button class={`${styles.submit} btn-active`} type="submit">
+          set time
         </button>
       </form>
+
+      <button
+        class={`${styles["timer-mode"]} btn-active`}
+        onClick={switchTimerMode}
+      >
+        timer mode
+      </button>
 
       <h3 class={styles.subtitle}>
         Design made by{" "}
         <a target="blank" href="https://dribbble.com/reticent_author">
           Marie
-        </a>
+        </a>{" "}
+        <br />
+        and coded by <a href="https://github.com/codi-andre">me</a>.
       </h3>
 
-      <p class={styles.legend}>except this menu &#128517;</p>
+      <p class={styles.legend}>
+        except this horrible menu &#128517;, <br /> this was all my fault.
+      </p>
     </div>
   )
 }

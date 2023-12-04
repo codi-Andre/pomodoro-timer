@@ -21,6 +21,7 @@ interface TimerMethods {
   clear: () => void
   countMode: () => void
   countdownMode: () => void
+  switchTimerMode: () => void
   setTimeInMin: (timeWork?: number, timeRest?: number) => void
 }
 
@@ -112,8 +113,10 @@ export function TimerProvider(props: TimerProviderProps) {
 
     if (state.countDown) {
       setState("time", formatTimeToTwoDigits([state.timeWork, 0]))
+      setState("timeInPercentage", 0)
     } else {
       setState("time", formatTimeToTwoDigits([0, 0]))
+      setState("timeInPercentage", 100)
     }
   }
 
@@ -126,7 +129,8 @@ export function TimerProvider(props: TimerProviderProps) {
       countDown: true,
       timeWork: 25,
       timeRest: 5,
-      isRunning: false
+      isRunning: false,
+      timeInPercentage: 0
     })
   }
 
@@ -175,10 +179,16 @@ export function TimerProvider(props: TimerProviderProps) {
 
     if (state.countDown) {
       setTargetTime(state.timeWork)
-      setState("time", formatTimeToTwoDigits([state.timeWork, 0]))
+      setState({
+        time: formatTimeToTwoDigits([state.timeWork, 0]),
+        timeInPercentage: 0
+      })
     } else {
       setTargetTime(state.timeRest)
-      setState("time", formatTimeToTwoDigits([state.timeRest, 0]))
+      setState({
+        time: formatTimeToTwoDigits([state.timeRest, 0]),
+        timeInPercentage: 100
+      })
     }
   }
 
@@ -186,7 +196,16 @@ export function TimerProvider(props: TimerProviderProps) {
     <TimerContext.Provider
       value={[
         state,
-        { clear, countdownMode, countMode, reset, setTimeInMin, start, stop }
+        {
+          clear,
+          countdownMode,
+          countMode,
+          reset,
+          setTimeInMin,
+          start,
+          stop,
+          switchTimerMode
+        }
       ]}
     >
       {props.children}

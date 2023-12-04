@@ -1,13 +1,17 @@
 .card {
+  position: relative;
+  overflow: hidden;
+
   background-color: var(--white100);
   box-shadow: 0 0 16px var(--white300);
 
   border-radius: 12px;
   min-height: 38rem;
-  min-width: 20rem;
+  min-width: 22rem;
 }
 
-.menu {
-  padding: 1rem;
+.menu-btn {
   color: var(--white300);
+  padding: 1rem;
+  margin: 0.2rem;
 }

@@ -51,10 +51,7 @@ export class Timer {
   }
 
   clear() {
-    if (this.isRunning) {
-      this.stop()
-    }
-
+    this.isRunning = false
     this.overallTime = 0
     this.startTime = 0
     this.targetTime = 1000 * 60 * 25
